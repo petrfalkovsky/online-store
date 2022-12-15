@@ -11,25 +11,29 @@
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petrfalkovsky/online-store.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petrfalkovsky/online-store/issues"
+  },
+  "homepage": "https://github.com/petrfalkovsky/online-store#readme",
   "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@babel/preset-env": "^7.20.2",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@types/node": "^18.11.15",
     "@webpack-cli/generators": "^3.0.1",
     "autoprefixer": "^10.4.13",
-    "babel-loader": "^9.1.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.2",
-    "eslint-webpack-plugin": "^3.2.0",
+    "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.6.1",
+    "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.20",
     "postcss-loader": "^7.0.2",
     "prettier": "^2.8.1",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",

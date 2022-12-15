@@ -4,7 +4,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -15,7 +14,7 @@ const stylesHandler = isProduction
 const config = {
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "../online-store-build"),
+    path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     open: true,
@@ -37,8 +36,8 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader"],
+        test: /\.s[ac]ss$/i,
+        use: [stylesHandler, "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
