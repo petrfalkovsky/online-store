@@ -1,13 +1,17 @@
+import { ProductList } from "../products/products";
+
 export class App {
+  private productList = new ProductList();
   render() {
-    console.log(
-      "Привет, тут будет страница для заказа кастомных вещей от @ostuffzdes"
-    );
-
-    const el = document.createElement("h3");
-    el.innerText = "Текст в созданном элементе через HTMLElement в класс App";
-    document.body.appendChild(el);
-
-    return `<h1>Рендерим в эпп заголовок h1 по id<h1>`;
+    return `
+    <h1>Рендерим в эпп заголовок h1 по id<h1>
+    <div>
+    ${this.productList.render()}
+    </div>
+    `;
   }
 }
+
+// const el = document.createElement("h3");
+// el.innerText = "Текст в созданном элементе через HTMLElement в класс App";
+// document.body.appendChild(el);
