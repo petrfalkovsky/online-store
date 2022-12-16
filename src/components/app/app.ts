@@ -2,11 +2,12 @@ import { ProductList } from "../products/products";
 
 export class App {
   private productList = new ProductList();
+  
   render() {
     return `
     <h1>Рендерим в эпп заголовок h1 по id<h1>
     <div>
-    ${this.productList.render()}
+      ${this.productList.render()}
     </div>
     `;
   }
