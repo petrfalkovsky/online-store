@@ -1,4 +1,4 @@
-import { ProductList } from "../products/products";
+import { ProductList } from "../products/index";
 
 export class App {
   private productList = new ProductList();

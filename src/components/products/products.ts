@@ -1,4 +1,4 @@
-import { ProductItem } from '../Product_item/index';
+import { ProductItem } from '../product_item/index';
 
 export class ProductList {
   private productArr: ProductItem[] = [
@@ -12,6 +12,9 @@ export class ProductList {
 
   render() {
     return `<h3>Заголовок ProductList:</h3>
-    ${this.productArr.map((item) => item.render()).join("")}`;
+    ${this.productArr.map((item) => item.render()).join("")}
+    <button>назад</button>
+    <button>вперед</button>
+    `;
   }
 }
