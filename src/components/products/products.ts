@@ -31,21 +31,33 @@ export class ProductList {
   render() {
     return `
     <h3>Заголовок ProductList:</h3>
-    <div style="display: flex;">
+    <div style="display: flex; flex-wrap: wrap;">
       ${this.products
         .map((product) => new ProductItem(product))
         .map((product) => product.render())
         .join("")}
     </div>
-    ${this.loading ? `<p>Loading..</p>` : ""}
+    <div>
+    ${
+      this.loading
+        ? `
+          <div class="spinner-border" role="status">
+              <span class="visually-hidden">Laoding..</span>
+          </div>
+          `
+        : ""
+    }
+    </div>
+    <div>
     ${
       this.error
         ? `<div class="alert alert-danger" role="alert">${this.error.message}</div>`
         : ""
     }
-    <div>
-      <button>назад</button>
-      <button>вперед</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="">
+        <button type="button" class="btn btn-primary">Назад</button>
+        <button type="button" class="btn btn-primary">Вперёд</button>
     </div>
     `;
   }
