@@ -44,6 +44,6 @@ export const getProducts = (): Promise<IProductItem[]> => {
       } else {
         resolve(PRODUCTS_DATA);
       }
-    }, 2000);
+    }, 1000);
   });
 };

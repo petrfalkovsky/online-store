@@ -2,12 +2,15 @@ import { ProductList } from "../products/index";
 
 export class App {
   private productList = new ProductList();
-  
+
   render() {
     return `
-    <h1>Рендерим в эпп заголовок h1 по id<h1>
-    <div>
-      ${this.productList.render()}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            ${this.productList.render()}
+            </div>
+        </div>
     </div>
     `;
   }
