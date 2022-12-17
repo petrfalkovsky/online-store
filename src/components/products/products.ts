@@ -38,7 +38,11 @@ export class ProductList {
         .join("")}
     </div>
     ${this.loading ? `<p>Loading..</p>` : ""}
-    ${this.error ? `<p>${this.error.message}</p>` : ""}
+    ${
+      this.error
+        ? `<div class="alert alert-danger" role="alert">${this.error.message}</div>`
+        : ""
+    }
     <div>
       <button>назад</button>
       <button>вперед</button>
