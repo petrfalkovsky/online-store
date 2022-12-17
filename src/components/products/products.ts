@@ -10,22 +10,23 @@ export class ProductList {
 
   constructor() {
     this.fetchProducts();
+
+    store.$state.subscribe((products: IProductItem[]) => {
+      this.products = products;
+      if (products.length) {
+        this.error = null;
+        this.loading = false;
+      }
+    });
   }
 
   fetchProducts() {
     this.loading = true;
-    productModel
-      .getProducts()
-      .then((products) => {
-        this.products = products;
-      })
-      .catch((err) => {
-        this.error = err;
-      })
-      .finally(() => {
-        this.loading = false;
-        store.$state.next(true); // todo потестить перерендер
-      });
+    store.update();
+    productModel.getProducts().catch((err) => {
+      this.error = err;
+      this.loading = false;
+    });
   }
 
   render() {

@@ -1,4 +1,5 @@
 import { getProducts } from "../../../data/products_data";
+import { store } from "../../store/store";
 import { IProductItem } from "../interface/i_product_item";
 
 export class ProductModel {
@@ -14,7 +15,12 @@ export class ProductModel {
   }
 
   getProducts(): Promise<IProductItem[]> {
-    return getProducts(); // берем промис продутка из базы данных
+    return getProducts().then((products: IProductItem[]) => {
+      store.update({
+        products,
+      });
+      return products;
+    });
   }
 }
 
