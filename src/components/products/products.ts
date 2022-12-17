@@ -2,6 +2,7 @@
 import { IProductItem } from "../product_item/interface/i_product_item";
 import { productModel } from "../product_item/model/product_model";
 import { ProductItem } from "../product_item/product_item";
+import { store } from "../store/store";
 
 export class ProductList {
   private loading = false;
@@ -21,6 +22,9 @@ export class ProductList {
       })
       .catch((err) => {
         this.error = err;
+      }).finally(() => {
+        this.loading = false;
+        store.$render.next(true); // todo потестить перерендер
       });
   }
 
