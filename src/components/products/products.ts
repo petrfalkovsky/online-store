@@ -24,7 +24,7 @@ export class ProductList {
       })
       .finally(() => {
         this.loading = false;
-        store.$render.next(true); // todo потестить перерендер
+        store.$state.next(true); // todo потестить перерендер
       });
   }
 
