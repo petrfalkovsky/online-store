@@ -11,7 +11,7 @@ export class ProductList {
   constructor() {
     this.fetchProducts();
 
-    store.$state.subscribe((products: IProductItem[]) => {
+    store.$state.subscribe(({products}) => {
       this.products = products;
       if (products.length) {
         this.error = null;

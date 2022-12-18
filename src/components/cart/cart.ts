@@ -7,8 +7,7 @@ export class Cart {
   private sum = 0;
 
   constructor() {
-    store.$state.subscribe((cart: Cart) => {
-      // todo здесь ошибка, по-моему надо cart передать объектом
+    store.$state.subscribe(({cart}) => {
       this.products = cart.products;
       this.amount = Object.keys(this.products).length;
       this.sum = Object.values(this.products).reduce(

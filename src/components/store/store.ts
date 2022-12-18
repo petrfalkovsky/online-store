@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "../../../node_modules/rxjs/dist/types/internal/BehaviorSubject";
+import { BehaviorSubject } from "rxjs";
 import { IStoreState } from "./interface/i_store_state";
 
 const DAFAULT_STATE: IStoreState = {
