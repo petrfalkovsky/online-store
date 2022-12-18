@@ -1,3 +1,4 @@
+import { BehaviorSubject } from "rxjs";
 import { IStoreState } from "./interface/i_store_state";
 
 const DAFAULT_STATE: IStoreState = {
@@ -10,8 +11,6 @@ const DAFAULT_STATE: IStoreState = {
 export class Store {
   static exists = false;
   static instance: Store;
-
-  // todo когда будет интернет, установить и импортнуть rxjs
 
   private state = DAFAULT_STATE;
   public $state = new BehaviorSubject<IStoreState>(this.state);
