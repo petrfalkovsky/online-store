@@ -1,18 +1,23 @@
+import { IMainComponent } from "../main_component/interface/i_main_comp";
 import { IProductItem } from "../product_item/interface/i_product_item";
 import { productModel } from "../product_item/model/product_model";
 import { ProductItem } from "../product_item/product_item";
 import { store } from "../store/store";
 
-export class ProductList {
+export class ProductList implements IMainComponent {
   private loading = false;
   private error: Error | null = null;
-  private products: IProductItem[] = [];
+  private products: IProductItem[] = []; // todo тип продакт наверное?
+  private productsComponent: ProductItem[] = []; // todo ок, а тут тогда?)
 
   constructor() {
     this.fetchProducts();
 
-    store.$state.subscribe(({products}) => {
+    store.$state.subscribe(({ products }) => {
       this.products = products;
+      this.productsComponent = products.map(
+        (product) => new ProductItem(product)
+      );
       if (products.length) {
         this.error = null;
         this.loading = false;
@@ -33,10 +38,7 @@ export class ProductList {
     return `
     <h3>Заголовок ProductList:</h3>
     <div style="display: flex; flex-wrap: wrap;">
-      ${this.products
-        .map((product) => new ProductItem(product))
-        .map((product) => product.render())
-        .join("")}
+      ${this.productsComponent.map((product) => product.render()).join("")}
     </div>
     <div>
     ${
@@ -61,5 +63,9 @@ export class ProductList {
         <button type="button" class="btn btn-primary">Вперёд</button>
     </div>
     `;
+  }
+
+  addEvent() {
+    this.productsComponent.forEach((component) => component.addEvent());
   }
 }

@@ -1,7 +1,11 @@
+import { listeners } from "process";
+import { IMainComponent } from "../main_component/interface/i_main_comp";
 import { IProductItem } from "./interface/i_product_item";
 
-export class ProductItem {
+export class ProductItem implements IMainComponent {
   constructor(private product: IProductItem) {}
+
+  private getIdproduct = () => `product_${(this, this.product.id)}`;
 
   render() {
     return `
@@ -10,9 +14,20 @@ export class ProductItem {
             <div class="card-body">
               <h5 class="card-title">${this.product.name}</h5>
               <p class="card-text">$${this.product.price}</p>
-              <a class="btn btn-primary" href="#" >Добавить в корзину</a>
+              <a class="btn btn-primary" href="#" id="${this.getIdproduct()}" >Добавить в корзину</a>
             </div>
         </div>
         `;
+  }
+
+  addEvent() {
+    const btn = document.getElementById(this.getIdproduct());
+    if (!btn) {
+      throw new Error("Something went wrong with Buy button!");
+    }
+    btn.addEventListener<"click">("click", (event) => {
+      event.preventDefault();
+      console.log("click");
+    });
   }
 }
