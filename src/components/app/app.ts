@@ -1,7 +1,9 @@
 import { ProductList } from "../products/index";
 import { Cart } from "../cart/index";
+import { IMainComponent } from "../main_component/interface/i_main_comp";
 
-export class App {
+export class App implements IMainComponent {
+  // addEvent: () => void;
   private productList = new ProductList();
   private cart = new Cart();
 
@@ -18,6 +20,11 @@ export class App {
         </div>
     </div>
     `;
+  }
+
+  addEvent() {
+    this.cart.addEvent();
+    this.productList.addEvent();
   }
 }
 
