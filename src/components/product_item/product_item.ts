@@ -1,4 +1,4 @@
-import { listeners } from "process";
+import {cartModel} from '../cart/model/cart_model';
 import { IMainComponent } from "../main_component/interface/i_main_comp";
 import { IProductItem } from "./interface/i_product_item";
 
@@ -27,7 +27,7 @@ export class ProductItem implements IMainComponent {
     }
     btn.addEventListener<"click">("click", (event) => {
       event.preventDefault();
-      console.log("click");
+      cartModel.addProduct(this.product);
     });
   }
 }
