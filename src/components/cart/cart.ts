@@ -30,7 +30,10 @@ class Cart implements IMainComponent {
           .map(
             ({ product, amount }) => `
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    ${product.name} ($${product.price})
+                    ${product.name} (${product.price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD",
+            })})
                     <div class="btn-group" role="group" aria-label="">
                         <button type="button" class="btn">+</button>
                         <button type="button" class="btn">-</button>
@@ -42,7 +45,10 @@ class Cart implements IMainComponent {
           .join("")}
         </ul>
         <p>
-            Всего: ${this.amount} товаров, $${this.sum}
+            Всего: ${this.amount} товаров, ${this.sum.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    })}
         </p>
     </div>
         `;
