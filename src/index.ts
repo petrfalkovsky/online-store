@@ -1,7 +1,8 @@
 import { App } from "./components/app/index";
-import { store } from "./components/store/store";
+import { Store } from "./components/store/store";
 
 const root = document.getElementById("root");
+const store = new Store();
 
 const app = new App();
 root.innerHTML = app.render();

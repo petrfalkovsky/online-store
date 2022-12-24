@@ -1,9 +1,10 @@
 import { IProductItem } from "../../product_item/interface/i_product_item";
-import { store } from "../../store/store";
+import { Store } from "../../store/store";
 
-export class CartModel {
+class CartModel {
   static isExisting = false;
   static instance: CartModel;
+  private store = new Store();
 
   constructor() {
     if (CartModel.isExisting) {
@@ -14,7 +15,7 @@ export class CartModel {
   }
 
   addProduct(product: IProductItem): void {
-    store.update({
+    this.store.update({
       cart: {
         products: { [product.id]: { amount: 1, product } },
       },
@@ -22,4 +23,4 @@ export class CartModel {
   }
 }
 
-export const cartModel = new CartModel();
+export { CartModel };

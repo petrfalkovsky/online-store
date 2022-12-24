@@ -1,4 +1,4 @@
-import { cartModel } from "../cart/model/cart_model";
+import { CartModel } from "../cart/model/cart_model";
 import { IMainComponent } from "../main_component/interface/i_main_comp";
 import { IProductItem } from "./interface/i_product_item";
 
@@ -6,6 +6,7 @@ export class ProductItem implements IMainComponent {
   constructor(private product: IProductItem) {}
 
   private getIdproduct = () => `product_${(this, this.product.id)}`;
+  private cartModel = new CartModel();
 
   render() {
     return `
@@ -27,7 +28,7 @@ export class ProductItem implements IMainComponent {
     }
     btn.addEventListener<"click">("click", (event) => {
       event.preventDefault();
-      cartModel.addProduct(this.product);
+      this.cartModel.addProduct(this.product);
     });
   }
 }

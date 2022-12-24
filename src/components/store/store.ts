@@ -8,7 +8,7 @@ const DAFAULT_STATE: IStoreState = {
   },
 };
 
-export class Store {
+class Store {
   static exists = false;
   static instance: Store;
 
@@ -36,4 +36,4 @@ export class Store {
   }
 }
 
-export const store = new Store();
+export { Store };

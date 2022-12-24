@@ -1,14 +1,15 @@
 import { IMainComponent } from "../main_component/interface/i_main_comp";
-import { store } from "../store/store";
+import { Store } from "../store/store";
 import { CartProducts } from "./intrface/i_cart";
 
-export class Cart implements IMainComponent {
+class Cart implements IMainComponent {
   private products: CartProducts = {};
   private amount = 0;
   private sum = 0;
+  private store = new Store();
 
   constructor() {
-    store.$state.subscribe(({ cart }) => {
+    this.store.$state.subscribe(({ cart }) => {
       this.products = cart.products;
       this.amount = Object.keys(this.products).length;
       this.sum = Object.values(this.products).reduce(
@@ -49,3 +50,5 @@ export class Cart implements IMainComponent {
 
   addEvent() {}
 }
+
+export { Cart };
