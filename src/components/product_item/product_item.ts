@@ -1,4 +1,4 @@
-import {cartModel} from '../cart/model/cart_model';
+import { cartModel } from "../cart/model/cart_model";
 import { IMainComponent } from "../main_component/interface/i_main_comp";
 import { IProductItem } from "./interface/i_product_item";
 
