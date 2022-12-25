@@ -7,6 +7,5 @@
     "allowJs": true,
     "moduleResolution": "node"
   },
-  "files": ["src/index.ts"],
-  "types": ["node"]
+  "files": ["src/index.ts"]
 }
