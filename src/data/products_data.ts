@@ -38,12 +38,12 @@ const PRODUCTS_DATA: IProductItem[] = [
 export const getProducts = (): Promise<IProductItem[]> => {
   return new Promise<IProductItem[]>((resolve, reject) => {
     setTimeout(() => {
-      if (Math.random() < 0.3) {
+      if (Math.random() < 0.1) {
         // рандом для теста, после теста захендлить эррор
         reject(new Error("Server shutdowned, sorry, we have trubles"));
       } else {
         resolve(PRODUCTS_DATA);
       }
-    }, 1000);
+    }, 500);
   });
 };
