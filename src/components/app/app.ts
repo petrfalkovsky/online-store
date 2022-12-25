@@ -2,8 +2,7 @@ import { ProductList } from "../products/index";
 import { Cart } from "../cart/index";
 import { IMainComponent } from "../main_component/interface/i_main_comp";
 
-export class App implements IMainComponent {
-  // addEvent: () => void;
+class App implements IMainComponent {
   private productList = new ProductList();
   private cart = new Cart();
 
@@ -28,6 +27,4 @@ export class App implements IMainComponent {
   }
 }
 
-// const el = document.createElement("h3");
-// el.innerText = "Текст в созданном элементе через HTMLElement в класс App";
-// document.body.appendChild(el);
+export { App };

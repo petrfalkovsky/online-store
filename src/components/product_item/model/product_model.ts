@@ -1,10 +1,12 @@
 import { getProducts } from "../../../data/products_data";
-import { store } from "../../store/store";
+import { Store } from "../../store/store";
 import { IProductItem } from "../interface/i_product_item";
 
-export class ProductModel {
+class ProductModel {
   static isExisting = false;
   static instance: ProductModel;
+
+  private store = new Store();
 
   constructor() {
     if (ProductModel.isExisting) {
@@ -16,7 +18,7 @@ export class ProductModel {
 
   getProducts(): Promise<IProductItem[]> {
     return getProducts().then((products: IProductItem[]) => {
-      store.update({
+      this.store.update({
         products,
       });
       return products;
@@ -24,4 +26,4 @@ export class ProductModel {
   }
 }
 
-export const productModel = new ProductModel();
+export { ProductModel };
