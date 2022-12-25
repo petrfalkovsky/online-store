@@ -1,5 +1,4 @@
 import { IMainComponent } from "../main_component/interface/i_main_comp";
-import { IProductItem } from "../product_item/interface/i_product_item";
 import { ProductModel } from "../product_item/model/product_model";
 import { ProductItem } from "../product_item/product_item";
 import { Store } from "../store/store";
@@ -7,7 +6,6 @@ import { Store } from "../store/store";
 class ProductList implements IMainComponent {
   private loading = false;
   private error: Error | null = null;
-  private products: IProductItem[] = []; // todo тип продакт наверное?
   private productsComponent: ProductItem[] = []; // todo ок, а тут тогда?)
   private store = new Store();
   private productModel = new ProductModel();
@@ -16,7 +14,6 @@ class ProductList implements IMainComponent {
     this.fetchProducts();
 
     this.store.$state.subscribe(({ products }) => {
-      this.products = products;
       this.productsComponent = products.map(
         (product) => new ProductItem(product)
       );
