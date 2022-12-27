@@ -35,7 +35,7 @@ const PRODUCTS_DATA: IProductItem[] = [
   },
 ];
 
-export const getProducts = (): Promise<IProductItem[]> => {
+const getProducts = (): Promise<IProductItem[]> => {
   return new Promise<IProductItem[]>((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.1) {
@@ -47,3 +47,5 @@ export const getProducts = (): Promise<IProductItem[]> => {
     }, 500);
   });
 };
+
+export { getProducts };

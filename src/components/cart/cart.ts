@@ -18,18 +18,19 @@ class Cart implements IMainComponent {
       );
     });
   }
+  
 
   render() {
+    let productContainer = document.querySelector('.list-group');       
+    
     return `
     <div>
-        <p>
-            Ваши покупки
-        </p>
-        <ul class="list-group">
+        <ul id="cartList" class="list-group">
+       
         ${Object.values(this.products)
           .map(
-            ({ product, amount }) => `
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+            ({ product, amount }) => productContainer!.innerHTML +=`
+                <li id="li" class="list-group-item d-flex justify-content-between align-items-center">
                     ${product.name} (${product.price.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
@@ -58,3 +59,38 @@ class Cart implements IMainComponent {
 }
 
 export { Cart };
+
+
+
+/* 
+ <div>
+        <p>
+            Ваши покупки
+        </p>
+        <ul id="cartList" class="list-group">
+        ${Object.values(this.products)
+          .map(
+            ({ product, amount }) => `
+                <li id="li" class="list-group-item d-flex justify-content-between align-items-center">
+                    ${product.name} (${product.price.toLocaleString("en-US", {
+              style: "currency",
+              currency: "USD",
+            })})
+                    <div class="btn-group" role="group" aria-label="">
+                        <button type="button" class="btn">+</button>
+                        <button type="button" class="btn">-</button>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">${amount}</span>
+                </li>
+             `
+          )
+          .join("")}
+        </ul>
+        <p>
+            Всего: ${this.amount} товаров, ${this.sum.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    })}
+        </p>
+    </div>
+*/
