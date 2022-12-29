@@ -14,7 +14,7 @@ const PRODUCTS_DATA: IProductItem[] = [
     name: "Название товара 2",
     image:
       "https://i.ytimg.com/vi/MfFAsIkqtc8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCChpgqee1NrOzbdd3qehlyP52D0g",
-    price: 99,
+    price: 8,
     favorites: false,
   },
   {
@@ -22,7 +22,7 @@ const PRODUCTS_DATA: IProductItem[] = [
     name: "Название товара 3",
     image:
       "https://i.ytimg.com/vi/MfFAsIkqtc8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCChpgqee1NrOzbdd3qehlyP52D0g",
-    price: 99,
+    price: 10.99,
     favorites: false,
   },
   {
@@ -30,7 +30,7 @@ const PRODUCTS_DATA: IProductItem[] = [
     name: "Название товара 4",
     image:
       "https://i.ytimg.com/vi/MfFAsIkqtc8/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCChpgqee1NrOzbdd3qehlyP52D0g",
-    price: 99,
+    price: 1300,
     favorites: false,
   },
 ];
