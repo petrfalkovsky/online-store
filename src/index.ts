@@ -5,7 +5,9 @@ const root = document.getElementById("root");
 const store = new Store();
 
 const app = new App();
-root.innerHTML = app.render();
+if (root === null) {
+  throw new Error("root not found");
+} else root.innerHTML = app.render();
 store.$state.subscribe(() => {
   root.innerHTML = app.render(); // перерендер по подписке
   app.addEvent();

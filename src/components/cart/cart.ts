@@ -20,36 +20,43 @@ class Cart implements IMainComponent {
   }
 
   render() {
+    let existEl;
+    if (document.querySelector(".list-group")) {
+      existEl = document.querySelector(".list-group")?.innerHTML;
+    }
+    let productContainer = existEl;
+
     return `
     <div>
-        <p>
-            Ваши покупки
-        </p>
+      <p>
+        Всего в корзине: ${this.amount} товаров на ${this.sum.toLocaleString(
+      "en-US",
+      {
+        style: "currency",
+        currency: "USD",
+      }
+    )}
+      </p>
         <ul class="list-group">
         ${Object.values(this.products)
           .map(
-            ({ product, amount }) => `
+            ({ product, amount }) =>
+              (productContainer += `
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     ${product.name} (${product.price.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })})
+                style: "currency",
+                currency: "USD",
+              })})
                     <div class="btn-group" role="group" aria-label="">
                         <button type="button" class="btn">+</button>
                         <button type="button" class="btn">-</button>
                     </div>
                     <span class="badge bg-primary rounded-pill">${amount}</span>
                 </li>
-             `
+             `)
           )
           .join("")}
         </ul>
-        <p>
-            Всего: ${this.amount} товаров, ${this.sum.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    })}
-        </p>
     </div>
         `;
   }
